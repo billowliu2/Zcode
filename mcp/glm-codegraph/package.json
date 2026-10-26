@@ -1,0 +1,18 @@
+{
+  "name": "glm-codegraph-mcp",
+  "version": "1.0.0",
+  "description": "Standalone code knowledge graph MCP server: tree-sitter parsing into one node:sqlite graph per project, exposed as codegraph_find / codegraph_impact / codegraph_context / codegraph_overview.",
+  "type": "module",
+  "private": true,
+  "main": "server.mjs",
+  "scripts": {
+    "start": "node server.mjs",
+    "check": "node --check server.mjs"
+  },
+  "dependencies": {
+    "web-tree-sitter": "^0.27.1"
+  },
+  "engines": {
+    "node": ">=22.18.0"
+  }
+}

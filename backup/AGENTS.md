@@ -1,5 +1,13 @@
 # 全局工作约定
 
+## 代码检索优先级
+
+查符号定义、调用方、改动影响面时，**优先用 codegraph MCP**（`mcp__glm-codegraph__codegraph_find` / `codegraph_impact` / `codegraph_context` / `codegraph_overview`），它基于 tree-sitter 符号图谱，比全仓 grep 精确、省 token：
+
+- 调用时**显式传 `project` 参数**（当前工作区的绝对路径），不要依赖服务进程 cwd
+- grep/read 仅作补充：图谱覆盖的语言（C#/C++/Go/Java/JS/Python/TS/TSX 等）用图谱；图谱提示覆盖缺口（未装语法）时再退回 grep
+- 工具返回的 freshness 非 current 时，结论要注明"基于 <时间> 的图谱"
+
 ## 网络搜索优先级
 
 需要联网搜索时，**优先使用 `mcp__glm-websearch__websearch` 工具**。

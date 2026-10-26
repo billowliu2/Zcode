@@ -12,7 +12,7 @@
 | `workflows/` | 保存的工作流：swarm（批量并行，coder/reviewer/researcher 三人设）、project-review（全项目体检）、quality-gate（检查命令门禁） | `~/.zcode/workflows/` |
 | `AGENTS.md` | 用户级全局指令（搜索优先级 mcp__glm-websearch__websearch、批量任务路由） | `~/.zcode/AGENTS.md` |
 
-同级 `../mcp/` 是 MCP 服务器实体（glm-websearch 搜索、glm-vision 识图），在源机上是生效位置。
+同级 `../mcp/` 是 MCP 服务器实体（glm-websearch 搜索、glm-vision 识图、codegraph 代码知识图谱），在源机上是生效位置。
 
 ## 迁移到新电脑（按顺序执行）
 
@@ -51,6 +51,12 @@ cp /d/Zcode/backup/AGENTS.md ~/.zcode/AGENTS.md
     "VISION_MAX_TOKENS": "524288",
     "VISION_FETCH_TIMEOUT_MS": "100000"
   },
+  "timeoutMs": 120000
+},
+"glm-codegraph": {
+  "type": "stdio",
+  "command": "node",
+  "args": ["D:/Zcode/mcp/glm-codegraph/server.mjs"],
   "timeoutMs": 120000
 },
 "glm-websearch": {
